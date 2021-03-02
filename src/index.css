@@ -1,41 +1,63 @@
 html {
   min-height: 100%;
 }
+
 body {
-  margin: 0;
-  padding: 0;
+  margin     : 0;
+  padding    : 0;
   font-family: sans-serif;
-  background: #373B44;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #4286f4, #373B44);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
-  min-height: 100%;
+  background : #0f0c29;
+  /* fallback for old browsers */
+  background : -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background : linear-gradient(to right, #24243e, #302b63, #0f0c29);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  min-height    : 100%;
   padding-bottom: 5rem;
 }
-h1, h2  {
-  color: white;
-  padding: 3rem 0;
+
+h1,
+h2 {
+  color     : white;
+  padding   : 2rem 0;
   text-align: center;
 
   text-transform: uppercase;
 
-  font-family: 'Staatliches', cursive;
+  font-family   : 'Staatliches', cursive;
   letter-spacing: 1px;
 }
+
+h3,
+h4 {
+  color     : white;
+  padding   : 1.5rem 0;
+  text-align: center;
+
+  text-transform: uppercase;
+
+  font-family   : 'Staatliches', cursive;
+  letter-spacing: 1px;
+}
+
 .lista-citas .media {
-  border-bottom: 1px solid #e1e1e1;
+  border-bottom : 1px solid #e1e1e1;
   padding-bottom: 3rem;
 }
 
-.lista-citas .media:last-of-type{
+.lista-citas .media:last-of-type {
   border-bottom: 0;
 }
+
 .lista-citas .media-body p {
-  margin:0;
+  margin: 0;
 }
+
 .lista-citas .media-body button {
-  margin-top: 1rem!important;
+  margin-top: 1rem !important;
 }
+
 .lista-citas .media-body span {
   font-weight: bold;
 }
@@ -46,51 +68,55 @@ label {
 
 input[type="date"],
 input[type="time"] {
-  height: 38px;
-    padding: 6px 10px;
-    background-color: #fff;
-    border: 1px solid #D1D1D1;
-    border-radius: 4px;
-    box-shadow: none;
-    box-sizing: border-box;
+  height          : 38px;
+  padding         : 6px 10px;
+  background-color: #fff;
+  border          : 1px solid #D1D1D1;
+  border-radius   : 4px;
+  box-shadow      : none;
+  box-sizing      : border-box;
 }
 
 .cita {
-  padding: 2rem;
-  background: white;
+  padding      : 2rem;
+  background   : white;
   border-bottom: 1px solid #e1e1e1;
-  color: black;
+  color        : black;
 }
 
 .cita p {
-  font-weight: bold;
+  font-weight  : bold;
   margin-bottom: .8rem;
 }
+
 .cita p span {
   font-weight: normal;
 
 }
+
 .cita:first-of-type {
-  border-top-left-radius: 1rem;
+  border-top-left-radius : 1rem;
   border-top-right-radius: 1rem;
 }
+
 .cita:last-of-type {
-  border-bottom-left-radius: 1rem;
+  border-bottom-left-radius : 1rem;
   border-bottom-right-radius: 1rem;
 }
+
 .button.eliminar,
 .button.eliminar:hover {
   background-color: #c10059;
-  color: white;
-  margin-top: 2rem;
+  color           : white;
+  margin-top      : 2rem;
 }
 
 .alerta-error {
   background-color: white;
-  color: red;
-  padding: 1rem;
-  font-size: 2rem;
-  text-transform: uppercase;
-  text-align: center;
-  font-family:  'Staatliches', cursive;
-} 
+  color           : red;
+  padding         : 1rem;
+  font-size       : 2rem;
+  text-transform  : uppercase;
+  text-align      : center;
+  font-family     : 'Staatliches', cursive;
+}

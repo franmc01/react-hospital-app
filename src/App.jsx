@@ -1,8 +1,21 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import Formulario from './components/Fomulario';
 
 function App() {
   return (
-    <h1>Admistrador de citas - Hospital Sisco</h1>
+    <Fragment>
+      <h1>Admistrador de citas - Hospital Sisco</h1>
+      <div className="container">
+        <div className="row">
+          <div className="one-half column">
+              <Formulario />
+          </div>
+          <div className="one-half column">
+              2
+          </div>
+        </div>
+      </div>
+    </Fragment>
   );
 }
 
