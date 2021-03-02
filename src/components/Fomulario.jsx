@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { nanoid } from 'nanoid'
+import PropTypes from 'prop-types';
 
 const Formulario = ({ crearCita }) => {
 
@@ -120,6 +121,10 @@ const Formulario = ({ crearCita }) => {
             </form>
         </Fragment>
     );
+}
+
+Formulario.prototype = {
+    crearCita: PropTypes.func.isRequired
 }
 
 export default Formulario;

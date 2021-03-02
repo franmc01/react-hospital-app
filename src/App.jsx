@@ -12,10 +12,11 @@ function App() {
 
   //useEffect para guardar los dato en localStorage
   React.useEffect(() => {
+    let citasLS = JSON.parse(localStorage.getItem('citas')) || [];
     if (citasLS) {
       localStorage.setItem('citas', JSON.stringify(citas))
     }
-  }, [citas])
+  }, [citas]);
 
   //Funcion que lea la nueva cita y la agrege a las que  a existen
   const crearCita = (cita) => {
@@ -43,7 +44,7 @@ function App() {
           <div className="one-half column">
             <h4>Lista de citas pendientes</h4>
             {
-              (citas.length===0) 
+              (citas.length === 0)
                 ? <p className="alerta-info">No hay citas pendientes</p>
                 : citas.map(cita => (
                   <Cita key={cita.id} cita={cita} eliminarCita={eliminarCita} />
