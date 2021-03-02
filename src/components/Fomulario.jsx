@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-
+import { nanoid } from 'nanoid'
 
 const Formulario = () => {
 
@@ -12,20 +12,51 @@ const Formulario = () => {
         sintomas: ''
     });
 
+    //State para manejar los errores
+    const [error, setError] = useState(false)
+
     //Función que se ejecuta cada vez que el usuario en un input
-    const handleChange = (event) => {
+    const handleInputChange = (event) => {
         guardarCita({
             ...cita,
             [event.target.name]: event.target.value
         });
     }
 
-    const { apellidos, nombres, fecha, hora, sintomas  } = cita;
+    //Desestrutuación del state cita
+    const { apellidos, nombres, fecha, hora, sintomas } = cita;
 
+
+    //Funcion que se ejecuta cuando se envia el form
+    const agendarCita = (event) => {
+        event.preventDefault();
+
+        //Validar el form
+        if (!apellidos.trim() || !nombres.trim() || !fecha.trim() || !hora.trim() || !sintomas.trim()) {
+            setError(true);
+        }
+
+        //Eliminar la alerta de error si ya hay error
+        setError(false);
+
+        //Asignar un id a la cita
+        cita.id = nanoid();
+
+        //Crear la cita y mostrarla en el DOM
+
+
+    }
     return (
         <Fragment>
             <h3>Agendar Cita</h3>
-            <form>
+            {
+                error ? <p className="alerta-error">
+                    Debe completar todos campos
+                        </p>
+                    : null
+            }
+
+            <form onSubmit={agendarCita}>
                 <div className="row">
                     <div className="six columns">
                         <label htmlFor="nombres">Nombre de la persona</label>
@@ -33,14 +64,14 @@ const Formulario = () => {
                             name="nombres"
                             className="u-full-width"
                             placeholder="Nombres"
-                            onChange={handleChange}
+                            onChange={handleInputChange}
                             value={nombres}
                         />
                         <label htmlFor="fecha">Fecha de recepción</label>
                         <input type="date"
                             name="fecha"
                             className="u-full-width"
-                            onChange={handleChange}
+                            onChange={handleInputChange}
                             value={fecha}
                         />
                     </div>
@@ -51,14 +82,14 @@ const Formulario = () => {
                             name="apellidos"
                             className="u-full-width"
                             placeholder="Apellidos"
-                            onChange={handleChange}
+                            onChange={handleInputChange}
                             value={apellidos}
                         />
                         <label htmlFor="Hora">Hora de recepción</label>
                         <input type="time"
                             name="hora"
                             className="u-full-width"
-                            onChange={handleChange}
+                            onChange={handleInputChange}
                             value={hora}
                         />
                     </div>
@@ -68,7 +99,7 @@ const Formulario = () => {
                 <textarea
                     name="sintomas"
                     className="u-full-width"
-                    onChange={handleChange}
+                    onChange={handleInputChange}
                     value={sintomas}
                 ></textarea>
 
