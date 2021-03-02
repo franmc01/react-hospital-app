@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { nanoid } from 'nanoid'
 
-const Formulario = () => {
+const Formulario = ({ crearCita }) => {
 
     //State para la citas
     const [cita, guardarCita] = useState({
@@ -34,16 +34,26 @@ const Formulario = () => {
         //Validar el form
         if (!apellidos.trim() || !nombres.trim() || !fecha.trim() || !hora.trim() || !sintomas.trim()) {
             setError(true);
+            return;
         }
 
-        //Eliminar la alerta de error si ya hay error
+        //Eliminar la alerta de error si ya pasó error
         setError(false);
 
-        //Asignar un id a la cita
+        //Asignar un id a la cita, para identificar - esto es opcional por ahora
         cita.id = nanoid();
 
-        //Crear la cita y mostrarla en el DOM
+        //Crear la cita
+        crearCita(cita);
 
+        //Reiniciar el form
+        guardarCita({
+            nombres: '',
+            apellidos: '',
+            fecha: '',
+            hora: '',
+            sintomas: ''
+        });
 
     }
     return (
