@@ -82,6 +82,7 @@ input[type="time"] {
   background   : white;
   border-bottom: 1px solid #e1e1e1;
   color        : black;
+  margin: 5px;
 }
 
 .cita p {
