@@ -107,7 +107,7 @@ input[type="time"] {
 
 .button.eliminar,
 .button.eliminar:hover {
-  background-color: #c10059;
+  background-color: #C82333;
   color           : white;
   margin-top      : 2rem;
 }
@@ -115,6 +115,16 @@ input[type="time"] {
 .alerta-error {
   background-color: white;
   color           : red;
+  padding         : 1rem;
+  font-size       : 2rem;
+  text-transform  : uppercase;
+  text-align      : center;
+  font-family     : 'Staatliches', cursive;
+}
+
+.alerta-info {
+  background-color: white;
+  color           : black;
   padding         : 1rem;
   font-size       : 2rem;
   text-transform  : uppercase;

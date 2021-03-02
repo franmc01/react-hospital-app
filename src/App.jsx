@@ -10,8 +10,14 @@ function App() {
   //Funcion que lea la nueva cita y la agrege a las que  a existen
   const crearCita = (cita) => {
     guardarCita([...citas, cita])
-    console.log(citas)
   }
+
+  //Funcion para eliminar la cita
+  const eliminarCita = (id) => {
+    const nuevas = citas.filter(cita => cita.id !== id);
+    guardarCita(nuevas)
+  }
+
 
 
   return (
@@ -26,9 +32,13 @@ function App() {
           </div>
           <div className="one-half column">
             <h4>Lista de citas pendientes</h4>
-            {citas.map(cita=>(
-              <Cita key={cita.id} cita={cita} />
-            ))}
+            {
+              (citas.length===0) 
+                ? <p className="alerta-info">No hay citas pendientes</p>
+                : citas.map(cita => (
+                  <Cita key={cita.id} cita={cita} eliminarCita={eliminarCita} />
+                ))
+            }
           </div>
         </div>
       </div>
