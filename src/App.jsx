@@ -4,8 +4,18 @@ import Cita from './components/Cita';
 
 function App() {
 
+  //Verificacion de localStorage
+  let citasLS = JSON.parse(localStorage.getItem('citas')) || [];
+
   //Arreglo de todas las citas
-  const [citas, guardarCita] = useState([]);
+  const [citas, guardarCita] = useState(citasLS);
+
+  //useEffect para guardar los dato en localStorage
+  React.useEffect(() => {
+    if (citasLS) {
+      localStorage.setItem('citas', JSON.stringify(citas))
+    }
+  }, [citas])
 
   //Funcion que lea la nueva cita y la agrege a las que  a existen
   const crearCita = (cita) => {
